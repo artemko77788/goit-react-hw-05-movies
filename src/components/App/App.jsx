@@ -1,35 +1,29 @@
+import Navigation from '../Navigation';
 import React from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
-import Home from 'views/Home';
-import Movies from 'views/Movies';
-import NoSuchPage from 'views/NoSuchPage';
+import { Route, Routes } from 'react-router-dom';
+import Home from 'components/views/Home';
+import Movies from 'components/views/Movies';
+import NoSuchPage from 'components/views/NoSuchPage';
+import { ToastContainer } from 'react-toastify';
+import s from './App.module.css';
+import MovieDetails from 'components/MovieDetails';
 
 export const App = () => {
   return (
-    <>
-      <ul>
-        <NavLink to="/"> Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-      </ul>
+    <div className={s.app}>
+      <ToastContainer autoClose={1500} />
 
       <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="*" element={<NoSuchPage />} />
+        <Route path="/" element={<Navigation />}>
+          <Route index exact element={<Home />} />
+
+          <Route path="movies/" element={<Movies />}>
+            <Route path="movies/:id/*" element={<MovieDetails />} />
+          </Route>
+
+          <Route path="*" element={<NoSuchPage />} />
+        </Route>
       </Routes>
-    </>
+    </div>
   );
 };
-
-// <div
-//   style={{
-//     height: '100vh',
-//     display: 'flex',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     fontSize: 40,
-//     color: '#010101',
-//   }}
-// >
-
-// </div>

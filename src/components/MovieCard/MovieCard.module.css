@@ -1,0 +1,57 @@
+.img {
+  width: 300px;
+}
+
+.wrap {
+  margin-left: 20px;
+  display: flex;
+}
+.text {
+  font-size: 20px;
+}
+
+.textInf {
+  font-size: 20px;
+  margin-left: 20px;
+}
+.wraper {
+  margin-left: 20px;
+  display: flex;
+}
+.overview {
+  margin-left: 20px;
+}
+
+.container {
+  padding-bottom: 20px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.322);
+}
+
+.button {
+  margin: 20px;
+  border-radius: 6px;
+  border-color: transparent;
+  background-color: rgb(200, 164, 120);
+}
+
+.list {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.item {
+  margin-bottom: 10px;
+  list-style: none;
+  flex-direction: row;
+}
+
+.item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.link {
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+}
