@@ -1,10 +1,9 @@
-import Cast from 'components/MovieDetails/Cast';
-import Reviews from 'components/MovieDetails/Reviews';
-import { PATH } from 'helpers/helpers';
-import { NavLink, Route, Routes, useNavigate } from 'react-router-dom';
+import { IMG_MOVIE, PATH } from 'helpers/helpers';
+
+import { useNavigate } from 'react-router-dom';
 import s from './MovieCard.module.css';
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, children }) => {
   const {
     poster_path,
     original_title,
@@ -12,7 +11,6 @@ const MovieCard = ({ movie }) => {
     vote_average,
     overview,
     genres,
-    id,
   } = movie;
 
   function getGenres(g) {
@@ -34,7 +32,7 @@ const MovieCard = ({ movie }) => {
 
         <div className={s.wrap}>
           <img
-            src={PATH + poster_path}
+            src={poster_path ? PATH + poster_path : IMG_MOVIE}
             alt={original_title}
             className={s.img}
           />
@@ -58,26 +56,7 @@ const MovieCard = ({ movie }) => {
           </div>
         </div>
       </div>
-      <div className={s.container}>
-        <p className={s.textInf}>Aditional Information</p>
-        <ul className={s.list}>
-          <li className={s.item}>
-            <NavLink to="cast" className={s.link}>
-              Cast
-            </NavLink>
-          </li>
-          <li className={s.item}>
-            <NavLink to="reviews" className={s.link}>
-              Reviews
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-
-      <Routes>
-        <Route path="cast" element={<Cast id={id} />} />
-        <Route path="reviews" element={<Reviews />} />
-      </Routes>
+      {children}
     </>
   );
 };

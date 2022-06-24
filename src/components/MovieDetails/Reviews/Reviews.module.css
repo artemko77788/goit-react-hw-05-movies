@@ -1,0 +1,16 @@
+.list {
+  list-style: none;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.text {
+  margin-left: 10px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.title {
+  font-size: 20px;
+}

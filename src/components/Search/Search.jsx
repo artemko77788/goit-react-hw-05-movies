@@ -1,13 +1,11 @@
 import s from './Search.module.css';
 import { FaSearch } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { fetchSeachMovie } from 'service/api';
+import { useState } from 'react';
 
-function Search({ filmsArr }) {
+function Search({ submite }) {
   const [seachMovies, setseachMovies] = useState('');
-  const [films, setfilms] = useState([]);
 
   const handleInputChange = e => {
     setseachMovies(e.currentTarget.value.toLowerCase());
@@ -19,15 +17,10 @@ function Search({ filmsArr }) {
       toast.error('Imput something');
       return;
     }
-
-    fetchSeachMovie(seachMovies).then(setfilms);
+    submite(seachMovies);
 
     setseachMovies('');
   };
-
-  useEffect(() => {
-    filmsArr(films);
-  }, [films, filmsArr]);
 
   return (
     <form className={s.SearchForm} onSubmit={handleSubmit}>

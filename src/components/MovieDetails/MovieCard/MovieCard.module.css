@@ -11,8 +11,8 @@
 }
 
 .textInf {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 30px;
+  margin: 20px;
 }
 .wraper {
   margin-left: 20px;
@@ -28,7 +28,8 @@
 }
 
 .button {
-  margin: 20px;
+  font-size: 15px;
+  margin-left: 20px;
   border-radius: 6px;
   border-color: transparent;
   background-color: rgb(200, 164, 120);

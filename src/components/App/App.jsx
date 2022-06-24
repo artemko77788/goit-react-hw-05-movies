@@ -1,29 +1,28 @@
 import Navigation from '../Navigation';
-import React from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from 'components/views/Home';
-import Movies from 'components/views/Movies';
 import NoSuchPage from 'components/views/NoSuchPage';
 import { ToastContainer } from 'react-toastify';
 import s from './App.module.css';
-import MovieDetails from 'components/MovieDetails';
+
+const Home = lazy(() => import('components/views/Home'));
+const Movies = lazy(() => import('components/views/Movies'));
+const MovieDetails = lazy(() => import('components/MovieDetails'));
 
 export const App = () => {
   return (
     <div className={s.app}>
       <ToastContainer autoClose={1500} />
-
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index exact element={<Home />} />
-
-          <Route path="movies/" element={<Movies />}>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route index exact element={<Home />} />
+            <Route path="movies/" element={<Movies />} />
             <Route path="movies/:id/*" element={<MovieDetails />} />
+            <Route path="*" element={<NoSuchPage />} />
           </Route>
-
-          <Route path="*" element={<NoSuchPage />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </Suspense>
     </div>
   );
 };

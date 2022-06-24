@@ -77,3 +77,16 @@ export const fetchByIdCast = async id => {
     return Promise.reject('There is no information ...');
   }
 };
+
+export const fetchByIdReviews = async id => {
+  if (id === '') {
+    return;
+  }
+  try {
+    const { data } = await getMovies(`/movie/${id}/reviews`, {});
+
+    return data;
+  } catch (error) {
+    return Promise.reject('There is no information ...');
+  }
+};
