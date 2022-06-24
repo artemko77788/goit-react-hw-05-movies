@@ -3,6 +3,7 @@ import { IMG, PATH, Status } from 'helpers/helpers';
 import { useEffect, useState } from 'react';
 import { fetchByIdCast } from 'service/api';
 import s from './Cast.module.css';
+import PropTypes from 'prop-types';
 
 const Cast = ({ id }) => {
   const [casts, setCasts] = useState([]);
@@ -43,6 +44,10 @@ const Cast = ({ id }) => {
       )}
     </>
   );
+};
+
+Cast.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default Cast;

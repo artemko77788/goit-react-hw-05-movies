@@ -1,5 +1,6 @@
 import ListItem from '../ListItem';
 import s from './HomePage.module.css';
+import PropTypes from 'prop-types';
 function HomePage({ films }) {
   return (
     <>
@@ -13,5 +14,8 @@ function HomePage({ films }) {
     </>
   );
 }
+HomePage.propType = {
+  films: PropTypes.array.isRequired,
+};
 
 export default HomePage;

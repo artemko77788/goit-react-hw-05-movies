@@ -3,6 +3,7 @@ import { Status } from 'helpers/helpers';
 import { useEffect, useState } from 'react';
 import { fetchByIdReview } from 'service/api';
 import s from './Reviews.module.css';
+import PropTypes from 'prop-types';
 
 const Reviews = ({ id }) => {
   const [review, setReview] = useState([]);
@@ -37,6 +38,9 @@ const Reviews = ({ id }) => {
       )}
     </>
   );
+};
+Reviews.propType = {
+  id: PropTypes.string.isRequired,
 };
 
 export default Reviews;

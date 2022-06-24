@@ -3,6 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function Search({ submite }) {
   const [seachMovies, setseachMovies] = useState('');
@@ -43,4 +44,7 @@ function Search({ submite }) {
   );
 }
 
+Search.propTypes = {
+  submite: PropTypes.func.isRequired,
+};
 export default Search;

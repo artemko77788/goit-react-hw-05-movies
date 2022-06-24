@@ -1,5 +1,5 @@
 import { IMG_MOVIE, PATH } from 'helpers/helpers';
-
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import s from './MovieCard.module.css';
 
@@ -60,5 +60,25 @@ const MovieCard = ({ movie, children }) => {
     </>
   );
 };
-
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    movie: PropTypes.shape({
+      poster_path: PropTypes.string,
+      original_title: PropTypes.string.isRequired,
+      genres: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ),
+      overview: PropTypes.string.isRequired,
+      vote_average: PropTypes.number.isRequired,
+    }),
+    children: PropTypes.arrayOf(
+      PropTypes.shape({
+        child: PropTypes.element,
+      })
+    ),
+  }),
+};
 export default MovieCard;

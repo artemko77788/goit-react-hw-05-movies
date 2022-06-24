@@ -1,4 +1,5 @@
 import ListItem from 'components/ListItem';
+import PropTypes from 'prop-types';
 
 function MoviesList({ filmsArr }) {
   return (
@@ -10,5 +11,8 @@ function MoviesList({ filmsArr }) {
     </ul>
   );
 }
+MoviesList.propTypes = {
+  filmsArr: PropTypes.array.isRequired,
+};
 
 export default MoviesList;
