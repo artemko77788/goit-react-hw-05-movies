@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import s from './ListItem.module.css';
 
 function ListItem({ film }) {
+  const location = useLocation();
+
   return (
     <li className={s.item}>
-      <Link to={`/movies/${film.id}`}> {film.original_title || film.name}</Link>
+      <Link to={`/movies/${film.id}/`} state={{ from: location }}>
+        {film.original_title || film.name}
+      </Link>
     </li>
   );
 }

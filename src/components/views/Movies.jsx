@@ -4,25 +4,28 @@ import SearchMovies from 'components/Search';
 
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { fetchSeachMovie } from 'service/api';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState('idle');
-  const [searchWord, setsearchWord] = useState();
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const seach = searchParams.get('search');
   const handleSummite = searchWord => {
-    setsearchWord(searchWord);
+    setSearchParams({ search: searchWord });
   };
 
   useEffect(() => {
     setStatus('pending');
-    fetchSeachMovie(searchWord)
+    fetchSeachMovie(seach)
       .then(setFilms)
       .catch(err => setError(err), setStatus('rejected'));
     setStatus('resolved');
-  }, [searchWord]);
+  }, [seach]);
 
   return (
     <>

@@ -1,6 +1,6 @@
 import { IMG_MOVIE, PATH } from 'helpers/helpers';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import s from './MovieCard.module.css';
 
 const MovieCard = ({ movie, children }) => {
@@ -19,16 +19,17 @@ const MovieCard = ({ movie, children }) => {
     }
     return '';
   }
-
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
-
+  const location = useLocation();
+  console.log(location);
+  console.log(location?.state?.from);
   return (
     <>
       <div className={s.container}>
-        <button onClick={goBack} className={s.button}>
-          Go back
-        </button>
+        <Link to={location?.state?.from ?? '/'}>
+          <button type="button" className={s.button}>
+            Go back
+          </button>
+        </Link>
 
         <div className={s.wrap}>
           <img
@@ -56,6 +57,7 @@ const MovieCard = ({ movie, children }) => {
           </div>
         </div>
       </div>
+
       {children}
     </>
   );
