@@ -46,7 +46,7 @@ const MovieDetails = () => {
                   className={s.link}
                   state={{ from: location }}
                 >
-                  Cast
+                  <h3> Cast</h3>
                 </NavLink>
               </li>
               <li className={s.item}>
@@ -55,7 +55,7 @@ const MovieDetails = () => {
                   className={s.link}
                   state={{ from: location }}
                 >
-                  Reviews
+                  <h3> Reviews</h3>
                 </NavLink>
               </li>
             </ul>

@@ -41,7 +41,7 @@ img {
 }
 
 .active {
-  color: rgb(230, 172, 64);
+  color: rgb(230, 172, 64) !important;
 }
 
 *,
