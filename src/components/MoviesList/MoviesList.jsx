@@ -1,9 +1,9 @@
 import ListItem from 'components/ListItem';
 import PropTypes from 'prop-types';
-
+import s from './MoviesList.module.css';
 function MoviesList({ filmsArr }) {
   return (
-    <ul>
+    <ul className={s.list}>
       {filmsArr &&
         filmsArr.map(film => {
           return <ListItem key={film.id} film={film} />;

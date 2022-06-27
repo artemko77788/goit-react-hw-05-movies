@@ -30,7 +30,7 @@ const Cast = ({ id }) => {
                 <li key={id} className={s.list}>
                   <img
                     src={profile_path ? PATH + profile_path : IMG}
-                    alt=""
+                    alt={name}
                     width={70}
                   />
                   <div>
