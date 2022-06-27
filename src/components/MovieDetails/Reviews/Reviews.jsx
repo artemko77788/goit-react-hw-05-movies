@@ -20,10 +20,9 @@ const Reviews = ({ id }) => {
     <>
       {state === Status.PENDING && <Loader />}
       {state === Status.REJECTED && <p>`${err}`</p>}
-
       {state === Status.RESOLVED && (
         <ul>
-          {review &&
+          {review.length !== 0 ? (
             review.map(({ author, id, content }) => {
               return (
                 <li key={id} className={s.list}>
@@ -33,7 +32,10 @@ const Reviews = ({ id }) => {
                   </div>
                 </li>
               );
-            })}
+            })
+          ) : (
+            <p>NO info</p>
+          )}
         </ul>
       )}
     </>

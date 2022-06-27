@@ -20,8 +20,7 @@ const MovieCard = ({ movie, children }) => {
     return '';
   }
   const location = useLocation();
-  console.log(location);
-  console.log(location?.state?.from);
+
   return (
     <>
       <div className={s.container}>

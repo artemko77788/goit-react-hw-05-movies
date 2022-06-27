@@ -21,10 +21,9 @@ const Cast = ({ id }) => {
     <>
       {state === Status.PENDING && <Loader />}
       {state === Status.REJECTED && <p>`${err}`</p>}
-
       {state === Status.RESOLVED && (
         <ul>
-          {casts &&
+          {casts.length !== 0 ? (
             casts.map(({ name, character, profile_path, id }) => {
               return (
                 <li key={id} className={s.list}>
@@ -39,7 +38,10 @@ const Cast = ({ id }) => {
                   </div>
                 </li>
               );
-            })}
+            })
+          ) : (
+            <p>NO info</p>
+          )}
         </ul>
       )}
     </>
