@@ -44,7 +44,9 @@ const MovieCard = ({ movie, children }) => {
               </p>
             </div>
             <div className={s.wraper}>
-              <p className={s.text}>User score: {vote_average * 10}%</p>
+              <p className={s.text}>
+                User score: {vote_average.toFixed() * 10}%
+              </p>
             </div>
             <div className={s.overview}>
               <p className={s.text}>Overview</p>

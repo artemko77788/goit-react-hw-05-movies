@@ -1,4 +1,4 @@
-import ListItem from '../ListItem';
+import ListItem from '../MoviesList/ListItem';
 import s from './HomePage.module.css';
 import PropTypes from 'prop-types';
 function HomePage({ films }) {

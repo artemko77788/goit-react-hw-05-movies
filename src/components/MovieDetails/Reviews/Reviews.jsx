@@ -20,7 +20,7 @@ const Reviews = ({ id }) => {
     <>
       {state === Status.PENDING && <Loader />}
       {state === Status.REJECTED && <p>`${err}`</p>}
-      {review.length === 0 && <p>No info</p>}
+
       {state === Status.RESOLVED && (
         <ul>
           {review &&

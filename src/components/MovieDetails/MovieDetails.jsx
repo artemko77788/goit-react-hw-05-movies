@@ -44,7 +44,7 @@ const MovieDetails = () => {
                 <NavLink
                   to="cast"
                   className={s.link}
-                  state={{ from: location }}
+                  state={{ from: location?.state?.from }}
                 >
                   <h3> Cast</h3>
                 </NavLink>
@@ -53,7 +53,7 @@ const MovieDetails = () => {
                 <NavLink
                   to="reviews"
                   className={s.link}
-                  state={{ from: location }}
+                  state={{ from: location?.state?.from }}
                 >
                   <h3> Reviews</h3>
                 </NavLink>

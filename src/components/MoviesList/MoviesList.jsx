@@ -1,4 +1,4 @@
-import ListItem from 'components/ListItem';
+import ListItem from 'components/MoviesList/ListItem';
 import PropTypes from 'prop-types';
 import s from './MoviesList.module.css';
 function MoviesList({ filmsArr }) {

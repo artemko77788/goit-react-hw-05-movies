@@ -21,7 +21,7 @@ const Cast = ({ id }) => {
     <>
       {state === Status.PENDING && <Loader />}
       {state === Status.REJECTED && <p>`${err}`</p>}
-      {casts.length === 0 && <p>No info</p>}
+
       {state === Status.RESOLVED && (
         <ul>
           {casts &&
